@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+# Employee Management App - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Employee Management App** frontend repository! This application is designed to help manage employee records efficiently. It provides a user-friendly interface to perform CRUD (Create, Read, Update, Delete) operations on employee data.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+4. [Running the Application](#running-the-application)
+5. [Folder Structure](#folder-structure)
+6. [API Integration](#api-integration)
+7. [Environment Variables](#environment-variables)
+8. [Contributing](#contributing)
+9. [License](#license)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **View Employee List**: Display a list of all employees with details like name, email, position, and department.
+- **Add New Employee**: A form to add a new employee to the system.
+- **Edit Employee Details**: Update existing employee information.
+- **Delete Employee**: Remove an employee from the system.
+- **Search and Filter**: Search and filter employees by name, department, or position.
+- **Responsive Design**: The app is fully responsive and works on all devices (desktop, tablet, mobile).
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **React.js**: A JavaScript library for building user interfaces.
+- **React Router**: For handling routing and navigation within the app.
+- **Axios**: For making HTTP requests to the backend API.
+- **Tailwind CSS**: A utility-first CSS framework for styling the app.
+- **React Hook Form**: For handling form inputs and validation.
+- **React Icons**: For adding icons to the app.
+- **Vercel**: For hosting the frontend application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run this project locally, follow these steps:
 
-### `npm run eject`
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/employee-app-frontend.git
+   cd employee-app-frontend
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory and add the following:
+   ```env
+   REACT_APP_API_URL=http://your-backend-api-url
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Run the application**:
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. **Open the app**:
+   Visit `http://localhost:3000` in your browser.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running the Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Development Mode**:
+  ```bash
+  npm start
+  ```
+  This will start the development server on `http://localhost:3000`.
 
-### Code Splitting
+- **Production Build**:
+  ```bash
+  npm run build
+  ```
+  This will create an optimized production build in the `build` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Deploy to Vercel**:
+  Push your changes to the `main` branch, and Vercel will automatically deploy the app.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Folder Structure
 
-### Making a Progressive Web App
+```
+employee-app-frontend/
+├── public/                  # Static assets
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/               # Application pages
+│   ├── services/            # API service calls
+│   ├── utils/               # Utility functions
+│   ├── App.js               # Main application component
+│   ├── index.js             # Entry point
+│   └── styles/              # Global styles
+├── .env                     # Environment variables
+├── .gitignore               # Files to ignore in Git
+├── package.json             # Project dependencies
+└── README.md                # Project documentation
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The frontend communicates with the backend API to perform CRUD operations. Below are the endpoints used:
 
-### Deployment
+- **Get All Employees**: `GET /api/employees`
+- **Add New Employee**: `POST /api/employees`
+- **Update Employee**: `PUT /api/employees/:id`
+- **Delete Employee**: `DELETE /api/employees/:id`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Example API call using Axios:
+```javascript
+import axios from 'axios';
 
-### `npm run build` fails to minify
+const API_URL = process.env.REACT_APP_API_URL;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export const getEmployees = async () => {
+  const response = await axios.get(`${API_URL}/employees`);
+  return response.data;
+};
+```
+
+---
+
+## Environment Variables
+
+The following environment variables are required:
+
+- `REACT_APP_API_URL`: The base URL of the backend API.
+
+Example:
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes.
+4. Push your branch and open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using the **Employee Management App**! If you have any questions or feedback, feel free to reach out. 😊
